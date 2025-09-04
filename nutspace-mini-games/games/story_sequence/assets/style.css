@@ -1,0 +1,68 @@
+/* ==========================================
+   Story Sequencing – Game CSS (v0.9.0)
+   Duolingo-ish, NutSpace colors
+   ========================================== */
+.story-sequence{max-width:960px;margin:0 auto;padding:16px}
+
+/* HUD */
+.hud{margin-bottom:12px}
+.hud h2{margin:0 0 6px;font-family:"Rebel Kids","Arial Black",sans-serif;color:var(--ns-navy)}
+.hud-bar{display:flex;justify-content:space-between;align-items:center;margin:10px 0}
+#timer{font-weight:900;color:var(--ns-navy);font-size:1.2rem}
+#lives{display:flex;gap:6px;align-items:center}
+.heart{font-size:1.35rem;line-height:1;color:#ef4444;text-shadow:0 1px 0 rgba(0,0,0,.05)}
+.heart.off{color:#e5e7eb;opacity:.55;filter:grayscale(50%)}
+
+/* Instruction chip */
+#instruction-tip{background:var(--ns-cream);padding:8px 12px;border-radius:14px;font-weight:700;display:inline-block}
+
+/* Board */
+.board{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.palette,.slots{
+  display:flex;flex-wrap:wrap;gap:14px;min-height:180px;padding:14px;
+  background:#fff7da;border:2px dashed var(--ns-border);border-radius:18px;box-shadow:var(--ns-shadow);
+  justify-content:center;align-content:flex-start;
+}
+
+/* Tiles */
+.tile{
+  width:170px;height:170px;border-radius:18px;overflow:hidden;border:3px solid var(--ns-border);background:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.08);
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;cursor:grab
+}
+.tile:active{cursor:grabbing}
+.tile:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.tile.selected{outline:4px solid var(--ns-brand);border-color:var(--ns-brand)}
+.tile img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+
+/* Slots */
+.slot{
+  width:170px;height:170px;border:3px dashed rgba(29,31,76,.25);border-radius:18px;background:#fff;
+  display:flex;align-items:center;justify-content:center;position:relative
+}
+.slot-label{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-weight:900;font-size:22px;color:var(--ns-navy);opacity:.25;pointer-events:none
+}
+.slots .slot>.tile{width:100%;height:100%;border:0;box-shadow:none}
+
+/* Reveal banner */
+.reveal-banner{margin:10px 0;background:#e6f7e9;border:2px solid #34d399;padding:10px;border-radius:12px;font-weight:800;color:#065f46;text-align:center}
+
+/* Buttons row */
+.gameplay-buttons{display:flex;gap:12px;margin:14px 0;justify-content:center}
+.gameplay-buttons .btn{min-width:220px}
+
+/* End screen */
+#end-screen{text-align:center}
+#celebrateStrip{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ns-cream);border-radius:14px;padding:10px;margin:10px 0}
+#confettiEnd{position:relative;height:64px;overflow:visible}
+
+/* Mobile */
+@media(max-width:600px){
+  .board{grid-template-columns:1fr}
+  .tile,.slot{width:95%!important;height:auto!important;aspect-ratio:1/1}
+  .slot-label{font-size:18px}
+  .gameplay-buttons{flex-direction:column}
+  .gameplay-buttons .btn{width:92%}
+}
